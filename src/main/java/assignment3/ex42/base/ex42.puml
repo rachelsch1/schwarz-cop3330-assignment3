@@ -1,0 +1,8 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ex42 {
+List<String[]> readInput
+void printOutput
+}
+@enduml
