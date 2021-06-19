@@ -1,27 +1,5 @@
 package assignment3.ex41.base;
 
-/* Alphabetizing the contents of a file, or sorting its contents, is a great way to get comfortable manipulating a file in your program.
-        Create a program that reads in the following list of names from a file called `exercise41_input.txt` and sorts the list alphabetically:
-        Ling, Mai
-        Johnson, Jim
-        Zarnecki, Sabrina
-        Jones, Chris
-        Jones, Aaron
-        Swift, Geoffrey
-        Xiong, Fong
-        Then print the sorted list to a file called `exercise41_output.txt` that looks like the following example output.
-        Example Output
-        Total of 7 names
-        -----------------
-        Johnson, Jim
-        Jones, Aaron
-        Jones, Chris
-        Ling, Mai
-        Swift, Geoffrey
-        Xiong, Fong
-        Zarnecki, Sabrina
-        Constraint
-        Don't hard-code the number of names. */
 /*
 UCF COP3330 Summer 2021 Assignment 3 Solution
 Copyright 2021 Rachel Schwarz
@@ -41,9 +19,10 @@ import java.util.List;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collections;
 
 public class ex41 {
-    static File inputFile = new File("exercise41_input.txt");
+    static File inputFile = new File("C:\\Users\\rachel\\Desktop\\code\\oop\\exercise41_input.txt");
     static FileWriter writeFile;
 
     static {
@@ -68,6 +47,8 @@ public class ex41 {
         List<String> list = new ArrayList<>();
         list = readInput(inputFile);
 
+        Collections.sort(list);
+
         printOutput(list, writeFile);
     }
 
@@ -82,8 +63,10 @@ public class ex41 {
     }
 
     public static void printOutput(List<String> list, FileWriter writeFile) throws IOException {
-        for(Object str: list) {
+        writeFile.write("Total of " + list.size() + " names\n------------------\n");
+        for(String str: list) {
             writeFile.write(str + System.lineSeparator());
         }
+        writeFile.close();
     }
 }
