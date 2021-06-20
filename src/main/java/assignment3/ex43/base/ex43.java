@@ -1,26 +1,5 @@
 package assignment3.ex43.base;
 
-/*Programming languages can create files and folders too.
-
-Create a program that generates a website skeleton with the following specifications:
-
-Prompt for the name of the site.
-Prompt for the author of the site.
-Ask if the user wants a folder for JavaScript files.
-Ask if the user wants a folder for CSS files.
-Generate an index.html file that contains the name of the site inside the <title> tag and the author in a <meta> tag.
-Example Output
-Site name: awesomeco
-Author: Max Power
-Do you want a folder for JavaScript? y
-Do you want a folder for CSS? y
-Created ./website/awesomeco
-Created ./website/awesomeco/index.html
-Created ./website/awesomeco/js/
-Created ./website/awesomeco/css/
-The user should then find these files and directories created in the working directory of your program.
- */
-
 /*
 UCF COP3330 Summer 2021 Assignment 3 Solution
 Copyright 2021 Rachel Schwarz
@@ -37,8 +16,6 @@ Copyright 2021 Rachel Schwarz
 - method: print output
     pass boolean for each folder, print statement for each true
  */
-
-// new File("/path/directory").mkdirs();
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -75,23 +52,29 @@ public class ex43 {
     }
 
     public static boolean createMainFolder(String siteName, String author) throws IOException {
-        File htmlFile = new File("C:\\Users\\rachel\\Desktop\\code\\oop\\website\\" + siteName + "\\index.html");
-        boolean status = htmlFile.mkdirs();
+        String path = "C:\\Users\\rachel\\Desktop\\code\\oop\\schwarz-cop3330-assignment3\\";
+        File webFolder = new File(path + "website\\");
+        boolean web = webFolder.mkdirs();
+        File siteFolder = new File(path + "website\\" + siteName + "\\");
+        boolean site = siteFolder.mkdirs();
+        File htmlFile = new File(path + "website\\" + siteName + "\\index.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(htmlFile));
         bw.write("<html><title>"+siteName+"</title><meta>"+author+"</meta></html>");
         bw.close();
 
-        return status;
+        return site;
     }
 
     public static boolean createJsFolder(String siteName) {
-        File jsFolder = new File("C:\\Users\\rachel\\Desktop\\code\\oop\\website\\" + siteName + "\\js");
+        String path = "C:\\Users\\rachel\\Desktop\\code\\oop\\schwarz-cop3330-assignment3\\";
+        File jsFolder = new File(path + "website\\" + siteName + "\\js");
         boolean status = jsFolder.mkdirs();
         return status;
     }
 
     public static boolean createCssFolder(String siteName) {
-        File cssFolder = new File("C:\\Users\\rachel\\Desktop\\code\\oop\\website\\" + siteName + "\\css");
+        String path = "C:\\Users\\rachel\\Desktop\\code\\oop\\schwarz-cop3330-assignment3\\";
+        File cssFolder = new File(path + "website\\" + siteName + "\\css");
         boolean status = cssFolder.mkdirs();
         return status;
     }

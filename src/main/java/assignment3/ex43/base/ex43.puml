@@ -1,11 +1,10 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-autonumber
-
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+class ex43 {
+boolean createMainFolder()
+boolean createJsFolder()
+boolean createCssFolder()
+void printOutput()
+}
 @enduml
