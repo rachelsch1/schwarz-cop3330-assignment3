@@ -7,9 +7,9 @@ Copyright 2021 Rachel Schwarz
 
 /* plan
 - method: loop that reads in names
-        in each loop iteration, use scanner to read input, add string to list- return list
+       in each loop iteration, use scanner to read input, add string to list- return list
 - use java.util.Collections.sort(list) to sort the names alphabetically
-- method: print names to output file
+- method: print names + table header to output file with FileWriter
  */
 
 import java.io.FileNotFoundException;
