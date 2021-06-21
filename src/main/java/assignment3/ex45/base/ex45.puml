@@ -1,0 +1,7 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ex45 {
+String readInput()
+}
+@enduml
